@@ -1,8 +1,7 @@
 ﻿namespace PetShop.Data.Models
 {
-    public class Wallet
+    public class Wallet : BaseModel
     {
-        public int Id { get; set; }
         public decimal Balance { get; set; }
 
         public int UserId { get; set; }

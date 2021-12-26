@@ -1,6 +1,6 @@
-﻿namespace PetShop.Data.Models
+﻿namespace PetShop.Data.Dtos
 {
-    public class Bill : BaseModel
+    public class BillDto : BaseDto
     {
         public string Total { get; set; }
         public DateTime IssueDate { get; set; }
@@ -8,7 +8,5 @@
         public string PaymentNumber { get; set; }
 
         public int OrderId { get; set; }
-
-        public Order Order { get; set; }
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace PetShop.Data.Models
+﻿namespace PetShop.Data.Dtos
 {
-    public class Pet : BaseModel
+    public class PetDto : BaseDto
     {
         public Category Category { get; set; }
         public string breed { get; set; }
@@ -9,9 +9,5 @@
         public string Description { get; set; }
 
         public int UserId { get; set; }
-
-        public List<PetImage> PetImages { get; set; }
-        public User User { get; set; }
-        public Order Order { get; set; }
     }
 }
