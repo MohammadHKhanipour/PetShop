@@ -1,9 +1,11 @@
-﻿namespace PetShop.Data.Models
+﻿using PetShop.Data.Enums;
+
+namespace PetShop.Data.Models
 {
     public class Pet
     {
         public int Id { get; set; }
-        public string Category { get; set; }
+        public Category Category { get; set; }
         public string breed { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
