@@ -1,9 +1,4 @@
-﻿using PetShop.Business.Services.Interfaces;
-using PetShop.Data.Adapters;
-using PetShop.Data.Repositories;
-using System.Linq.Expressions;
-
-namespace PetShop.Business.Services.Classes
+﻿namespace PetShop.Business.Services.Classes
 {
     public class DomainService<Model, Dto> : IDomainService<Model, Dto> where Model : BaseModel where Dto : BaseDto
     {

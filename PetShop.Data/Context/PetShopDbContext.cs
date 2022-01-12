@@ -1,5 +1,4 @@
-﻿using PetShop.Data.Models;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 
 namespace PetShop.Data.Context
 {

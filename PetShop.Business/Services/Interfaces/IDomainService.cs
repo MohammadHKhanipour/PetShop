@@ -1,6 +1,4 @@
-﻿using System.Linq.Expressions;
-
-namespace PetShop.Business.Services.Interfaces
+﻿namespace PetShop.Business.Services.Interfaces
 {
     public interface IDomainService<Model, Dto> where Model : BaseModel where Dto : BaseDto
     {
