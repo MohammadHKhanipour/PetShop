@@ -10,7 +10,6 @@ namespace PetShop.Business.Services.Interfaces
         public Task<int> GetCountAsync();
         public Task<Dto> GetFirstOrDefaultAsync(Expression<Func<Model, bool>> expression);
         public Task<Dto> GetSingleOrDefaultAsync(Expression<Func<Model, bool>> expression);
-        public Task<List<Dto>> GetQueryAsync(string query);
         public Task<bool> AddAsync(Model entity);
         public Task<bool> AddRangeAsync(List<Model> entities);
         public Task<bool> DeleteAsync(int id);
