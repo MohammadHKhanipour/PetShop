@@ -8,11 +8,8 @@ namespace PetShop.Data.Context
         {
         }
 
-        public DbSet<Bill> Bills { get; set; }
-        public DbSet<Order> Orders { get; set; }
         public DbSet<Pet> Pets { get; set; }
         public DbSet<PetImage> PetImages { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Wallet> Wallets { get; set; }
     }
 }
