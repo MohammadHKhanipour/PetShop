@@ -32,9 +32,7 @@
         }
 
         public async Task<int> GetCountAsync()
-        {
-            return await _queryRepository.GetCountAsync();
-        }
+            => await _queryRepository.GetCountAsync();
 
         public async Task<Dto> GetFirstOrDefaultAsync(Expression<Func<Model, bool>> expression)
         {
@@ -49,33 +47,21 @@
         }
 
         public async Task<bool> AddAsync(Model entity)
-        {
-            return await _commandRepository.AddAsync(entity);
-        }
+            => await _commandRepository.AddAsync(entity);
 
         public async Task<bool> AddRangeAsync(List<Model> entities)
-        {
-            return await _commandRepository.AddRangeAsync(entities);
-        }
+            => await _commandRepository.AddRangeAsync(entities);
 
         public async Task<bool> DeleteAsync(int id)
-        {
-            return await _commandRepository.DeleteAsync(id);
-        }
+            => await _commandRepository.DeleteAsync(id);
 
         public async Task<bool> DeleteAsync(Model entity)
-        {
-            return await _commandRepository.DeleteAsync(entity);
-        }
+            => await _commandRepository.DeleteAsync(entity);
 
         public async Task<bool> DeleteRangeAsync(List<Model> entities)
-        {
-            return await _commandRepository.DeleteRangeAsync(entities);
-        }
+            => await _commandRepository.DeleteRangeAsync(entities);
 
         public async Task<bool> UpdateAsync(Model entity)
-        {
-            return await _commandRepository.UpdateAsync(entity);
-        }
+            => await _commandRepository.UpdateAsync(entity);
     }
 }
