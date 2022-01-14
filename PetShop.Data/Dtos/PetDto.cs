@@ -9,6 +9,7 @@
         public string Price { get; set; }
         public string City { get; set; }
         public string Description { get; set; }
+        public DateOnly DateAdded { get; set; }
 
         public int UserId { get; set; }
     }

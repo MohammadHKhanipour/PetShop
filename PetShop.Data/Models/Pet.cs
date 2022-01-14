@@ -9,11 +9,11 @@
         public string Price { get; set; }
         public string City { get; set; }
         public string Description { get; set; }
+        public DateOnly DateAdded { get; set; }
 
         public int UserId { get; set; }
 
         public List<PetImage> PetImages { get; set; }
         public User User { get; set; }
-        public Order Order { get; set; }
     }
 }

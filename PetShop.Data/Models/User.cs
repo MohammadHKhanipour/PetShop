@@ -10,8 +10,6 @@
         public string City { get; set; }
         public string Street { get; set; }
 
-        public Wallet Wallet { get; set; }
-        public List<Order> Orders { get; set; }
         public List<Pet> Pets { get; set; }
     }
 }
