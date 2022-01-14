@@ -2,11 +2,6 @@
 {
     public class Pet : BaseModel
     {
-        public Pet()
-        {
-            User = new User();
-        }
-
         public Category Category { get; set; }
         public string Breed { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
@@ -19,6 +14,6 @@
 
         public int UserId { get; set; }
 
-        public User User { get; set; }
+        public User? User { get; set; }
     }
 }
