@@ -44,7 +44,7 @@
                 PhoneNumber = dto.PhoneNumber,
                 Email = dto.Email,
                 City = dto.City,
-                Street= dto.Street
+                Street = dto.Street
             };
         }
 
