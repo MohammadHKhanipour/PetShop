@@ -1,6 +1,4 @@
-﻿using PetShop.Business.Businesses.Interfaces;
-
-namespace PetShop.Business.Businesses.Classes
+﻿namespace PetShop.Business.Businesses.Classes
 {
     public class DomainBusiness<Model, Dto> : IDomainBusiness<Model, Dto> where Model : BaseModel where Dto : BaseDto
     {
