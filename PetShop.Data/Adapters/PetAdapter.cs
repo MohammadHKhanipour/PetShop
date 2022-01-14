@@ -14,6 +14,8 @@
                 Breed = model.Breed,
                 Name = model.Name,
                 Age = model.Age,
+                Price = model.Price,
+                City = model.City,
                 Description = model.Description,
                 UserId = model.UserId
             };
@@ -41,6 +43,8 @@
                 Breed = dto.Breed,
                 Name = dto.Name,
                 Age = dto.Age,
+                Price = dto.Price,
+                City = dto.City,
                 Description = dto.Description,
                 UserId = dto.UserId
             };

@@ -16,7 +16,7 @@
                 PhoneNumber = model.PhoneNumber,
                 Email = model.Email,
                 City = model.City,
-                Address = model.Address
+                Street = model.Street
             };
         }
 
@@ -44,7 +44,7 @@
                 PhoneNumber = dto.PhoneNumber,
                 Email = dto.Email,
                 City = dto.City,
-                Address = dto.Address
+                Street= dto.Street
             };
         }
 
