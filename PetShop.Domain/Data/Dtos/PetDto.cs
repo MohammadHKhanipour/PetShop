@@ -9,7 +9,7 @@
         public string Price { get; set; } = string.Empty;
         public string City { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-        public DateOnly DateAdded { get; set; }
+        public DateTime DateAdded { get; set; }
         public string ImageAddress { get; set; } = string.Empty;
 
         public int UserId { get; set; }
