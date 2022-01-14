@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Businesses\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\PetShop.Data\PetShop.Data.csproj" />
   </ItemGroup>
 
