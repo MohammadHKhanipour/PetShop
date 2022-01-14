@@ -10,10 +10,10 @@
         public string City { get; set; }
         public string Description { get; set; }
         public DateOnly DateAdded { get; set; }
+        public string ImageAddress { get; set; }
 
         public int UserId { get; set; }
 
-        public List<PetImage> PetImages { get; set; }
         public User User { get; set; }
     }
 }

@@ -9,7 +9,6 @@ namespace PetShop.Data.Context
         }
 
         public DbSet<Pet> Pets { get; set; }
-        public DbSet<PetImage> PetImages { get; set; }
         public DbSet<User> Users { get; set; }
     }
 }
