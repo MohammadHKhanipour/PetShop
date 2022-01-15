@@ -16,7 +16,7 @@ builder.Services.AddDbContext<PetShopDbContext>(options => options.UseSqlServer(
 
 builder.Services.AddScoped<IQueryRepository<User>, QueryRepository<User>>();
 builder.Services.AddScoped<ICommandRepository<User>, CommandRepository<User>>();
-builder.Services.AddScoped<IBaseAdapter<User,UserDto>, UserAdapter>();
+builder.Services.AddScoped<IBaseAdapter<User, UserDto>, UserAdapter>();
 builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();

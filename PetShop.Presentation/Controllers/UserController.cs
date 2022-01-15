@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PetShop.Domain.Data.Models;
 using PetShop.Domain.Services.Interfaces;
 
 namespace PetShop.Presentation.Controllers

@@ -42,7 +42,7 @@
                 IsActive = dto.IsActive,
                 Category = dto.Category,
                 Breed = dto.Breed,
-                Gender= dto.Gender,
+                Gender = dto.Gender,
                 Name = dto.Name,
                 Age = dto.Age,
                 Price = dto.Price,
