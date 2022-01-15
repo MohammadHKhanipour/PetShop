@@ -4,6 +4,7 @@
     {
         public Category Category { get; set; }
         public string Breed { get; set; } = string.Empty;
+        public Gender Gender { get; set; }
         public string Name { get; set; } = string.Empty;
         public int Age { get; set; }
         public string Price { get; set; } = string.Empty;
