@@ -25,5 +25,11 @@
             var models = await _queryRepository.GetAsync(x => x.City == user.City);
             return _baseAdapter.GetDtos(models).ToList();
         }
+
+        public async Task<List<PetDto>> GetAllByUserId(int id)
+        {
+            var models = await _queryRepository.GetAsync(x => x.UserId == id);
+            return _baseAdapter.GetDtos(models).ToList();
+        }
     }
 }

@@ -4,5 +4,6 @@
     {
         public Task<List<PetDto>> GetAllByCityName(string city);
         public Task<List<PetDto>> GetAllByUserCity(User user);
+        public Task<List<PetDto>> GetAllByUserId(int id);
     }
 }
