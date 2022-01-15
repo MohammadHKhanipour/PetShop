@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetShop.Domain.Data.Context;
 
@@ -11,9 +12,10 @@ using PetShop.Domain.Data.Context;
 namespace PetShop.Domain.Migrations
 {
     [DbContext(typeof(PetShopDbContext))]
-    partial class PetShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220115110804_V3")]
+    partial class V3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -86,7 +88,7 @@ namespace PetShop.Domain.Migrations
                             Breed = "Husky",
                             Category = 1,
                             City = "Tehran",
-                            DateAdded = new DateTime(2022, 1, 15, 14, 40, 26, 828, DateTimeKind.Local).AddTicks(9649),
+                            DateAdded = new DateTime(2022, 1, 15, 14, 38, 4, 412, DateTimeKind.Local).AddTicks(2189),
                             Description = "A good boy",
                             Gender = 0,
                             ImageAddress = "https://barkingroyalty.com/wp-content/uploads/2016/02/Alaskan-Malamutes.jpg",

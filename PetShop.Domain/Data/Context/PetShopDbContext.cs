@@ -39,6 +39,7 @@
                 UserId = 1,
                 Description = "A good boy",
                 Breed = "Husky",
+                Gender = Gender.Male,
                 Category = Category.Dog,
                 DateAdded = DateTime.Now,
                 ImageAddress = "https://barkingroyalty.com/wp-content/uploads/2016/02/Alaskan-Malamutes.jpg"

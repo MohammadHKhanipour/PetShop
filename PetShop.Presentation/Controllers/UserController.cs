@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PetShop.Domain.Data.Models;
 using PetShop.Domain.Services.Interfaces;
 
 namespace PetShop.Presentation.Controllers
@@ -18,5 +19,25 @@ namespace PetShop.Presentation.Controllers
 
             return Ok(test);
         }
+
+        //public async Task<IActionResult> Test()
+        //{
+        //    var model = new User()
+        //    {
+        //        IsActive = true,
+        //        FirstName = "Hossein",
+        //        LastName = "Kargar",
+        //        Age = 29,
+        //        PhoneNumber = "09357105475",
+        //        Email = "hossein@hossein.hossein",
+        //        City = "Shiraz",
+        //        Street = "Shams",
+        //        Password = "456"
+        //    };
+
+        //    var result = await _userService.AddAsync(model);
+
+        //    return Ok(result);
+        //}
     }
 }
