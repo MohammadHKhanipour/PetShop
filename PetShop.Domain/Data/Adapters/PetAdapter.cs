@@ -18,7 +18,9 @@
                 Price = model.Price,
                 City = model.City,
                 Description = model.Description,
-                UserId = model.UserId
+                UserId = model.UserId,
+                ImageAddress = model.ImageAddress,
+                DateAdded = model.DateAdded,
             };
         }
 
@@ -48,6 +50,8 @@
                 Price = dto.Price,
                 City = dto.City,
                 Description = dto.Description,
+                DateAdded= dto.DateAdded,
+                ImageAddress= dto.ImageAddress,
                 UserId = dto.UserId
             };
         }

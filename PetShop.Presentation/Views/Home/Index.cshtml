@@ -1,8 +1,93 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using PetShop.Domain.Data.Dtos
+@using PetShop.Domain.Data.Enums
+
+@{
+	ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container-fluid container-fluid-100 d-flex">
+	<div class="col-2 left-menu d-flex flex-column">
+		<p class="fs-4 ms-2 text-green-strong">Filters:</p>
+		<p class="fs-5 ms-2 text-green-strong">City</p>
+		<button class="btn btn-outline-success mycitypets align-self-center mb-2">
+			Pets in My City
+		</button>
+		<p class="fs-6 text-green align-self-center">OR</p>
+		<form class="d-flex mx-2">
+			<input class="form-control search-shadow me-2"
+				   type="search"
+				   placeholder="Type City Name"
+				   aria-label="Search" />
+			<button class="btn btn-outline-success">Search</button>
+		</form>
+		<p class="fs-5 ms-2 text-green-strong mt-5">Category</p>
+		<button class="btn btn-outline-success align-self-center mycitypets mb-2">
+			Dogs
+		</button>
+		<button class="btn btn-outline-success align-self-center mycitypets mb-2">
+			Cats
+		</button>
+		<button class="btn btn-outline-success align-self-center mycitypets mb-2">
+			Birds
+		</button>
+		<button class="btn btn-outline-success align-self-center mycitypets mb-2">
+			Reptiles
+		</button>
+		<button class="btn btn-outline-success align-self-center mycitypets mb-2">
+			Mammals
+		</button>
+		<button class="btn btn-outline-success align-self-center mycitypets mb-2">
+			Others
+		</button>
+	</div>
+
+	<div class="col-10 mt-3 ps-2">
+		<div class="row row-cols-5 g-3 me-1">
+			@{
+				var pets = ViewBag.Pets as List<PetDto>;
+				if (pets == null || !pets.Any())
+				{
+					<p>No pets Found</p>
+				}
+				else
+				{
+					foreach (var item in pets)
+					{
+						<div class="col">
+							<div class="card card-border h-100">
+								<img src="@item.ImageAddress"
+						 	class="card-img-top"
+						 	alt="..." />
+								<div class="card-body">
+									<div class="d-flex justify-content-between">
+										<h3 class="card-title">@item.Name</h3>
+										@if (item.Gender == Gender.Male)
+										{
+											<i class="bi bi-gender-male h4"></i>
+										}
+										else
+										{
+											<i class="bi bi-gender-female h4"></i>
+										}
+									</div>
+									<div class="d-flex">
+										<p class="fs-5 fw-bold">@item.Breed</p>
+										<p class="fs-5 mx-2 text-green-strong">•</p>
+										<p class="fs-5 fw-bold">@item.Age</p>
+									</div>
+								</div>
+								<div class="card-footer">
+									<div class="d-flex justify-content-between">
+										<h5 class="card-title text-green-strong priceline">@item.Price</h5>
+										<p class="card-title fw-bold">@item.DateAdded.ToShortDateString()</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					}
+				}
+			}
+
+		</div>
+	</div>
 </div>
