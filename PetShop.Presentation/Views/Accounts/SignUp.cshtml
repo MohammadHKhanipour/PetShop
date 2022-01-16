@@ -13,6 +13,11 @@
 <form class="container loginborder" asp-action="SignUp" asp-controller="Accounts" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="mb-3">
+            @if(!string.IsNullOrEmpty(ViewBag.Error)){
+                <div class="alert alert-danger" role="alert">
+                @ViewBag.Error
+                </div>
+            }
         <div class="row mb-3">
             <div class="col">
                 <label class="form-label">First Name</label>

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace PetShop.Domain.Data.Context
 {
-    public class PetShopDbContext : IdentityDbContext<User>
+    public class PetShopDbContext : IdentityDbContext<User,IdentityRole,string>
     {
         public PetShopDbContext(DbContextOptions<PetShopDbContext> options) : base(options)
         {

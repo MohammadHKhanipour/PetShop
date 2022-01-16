@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using PetShop.Domain.Data.Dtos;
 using PetShop.Domain.Data.Models;
 using PetShop.Domain.Services.Interfaces;
@@ -7,6 +8,15 @@ namespace PetShop.Presentation.Controllers
 {
     public class AccountsController : Controller
     {
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
+
+        public AccountsController(UserManager<User> userManager, SignInManager<User> signInManager)
+        {
+            _userManager = userManager;
+            _signInManager = signInManager;
+        }
+
         [HttpGet]
         public IActionResult SignUp()
         {
@@ -21,6 +31,7 @@ namespace PetShop.Presentation.Controllers
 
             var user = new User()
             {
+                IsActive = true,
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,
                 Email = dto.Email,
@@ -31,7 +42,39 @@ namespace PetShop.Presentation.Controllers
                 UserName = dto.PhoneNumber
             };
 
+            var result = await _userManager.CreateAsync(user, dto.Password);
+            if (result.Succeeded)
+                return RedirectToAction("LogIn");
+
+            ViewBag.Error = "Sign Up Failed";
             return View(dto);
+        }
+
+        [HttpGet]
+        public IActionResult LogIn()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> LogIn(LogInDto dto)
+        {
+            if (!ModelState.IsValid)
+                return View(dto);
+
+            var result = await _signInManager.PasswordSignInAsync(dto.UserName, dto.Password, dto.RememberMe, true);
+            if (result.Succeeded)
+                return RedirectToAction("Index","Home");
+
+            ViewBag.Error = "LogIn Failed";
+            return View(dto);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

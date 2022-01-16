@@ -30,3 +30,5 @@ namespace PetShop.Presentation.Controllers
         }
     }
 }
+
+//  var user = await _userManager.GetUserAsync(User);

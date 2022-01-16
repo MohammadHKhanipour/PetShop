@@ -18,7 +18,7 @@ builder.Services.AddScoped<ICommandRepository<Pet>, CommandRepository<Pet>>();
 builder.Services.AddScoped<IBaseAdapter<Pet, PetDto>, PetAdapter>();
 builder.Services.AddScoped<IPetService, PetService>();
 
-builder.Services.AddIdentityCore<User>(option =>
+builder.Services.AddIdentity<User,IdentityRole>(option =>
 {
     option.Password.RequiredUniqueChars = 0;
     option.Password.RequireUppercase = false;
@@ -43,6 +43,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
