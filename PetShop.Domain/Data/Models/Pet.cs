@@ -13,7 +13,7 @@
         public DateTime DateAdded { get; set; }
         public string ImageAddress { get; set; } = string.Empty;
 
-        public int UserId { get; set; }
+        public string? UserId { get; set; }
 
         public User? User { get; set; }
     }

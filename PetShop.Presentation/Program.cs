@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using PetShop.Domain.Data.Adapters;
 using PetShop.Domain.Data.Context;
 using PetShop.Domain.Data.Dtos;
@@ -11,13 +13,23 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<IQueryRepository<Pet>, QueryRepository<Pet>>();
+builder.Services.AddScoped<ICommandRepository<Pet>, CommandRepository<Pet>>();
+builder.Services.AddScoped<IBaseAdapter<Pet, PetDto>, PetAdapter>();
+builder.Services.AddScoped<IPetService, PetService>();
+
+builder.Services.AddIdentityCore<User>(option =>
+{
+    option.Password.RequiredUniqueChars = 0;
+    option.Password.RequireUppercase = false;
+    option.Password.RequireLowercase = false;
+    option.Password.RequireNonAlphanumeric = false;
+    option.Password.RequiredLength = 6;
+    option.Lockout.MaxFailedAccessAttempts = 5;
+}).AddEntityFrameworkStores<PetShopDbContext>().AddDefaultTokenProviders();
+
 var connectionString = builder.Configuration.GetConnectionString("PetShopDbConnection");
 builder.Services.AddDbContext<PetShopDbContext>(options => options.UseSqlServer(connectionString));
-
-builder.Services.AddScoped<IQueryRepository<User>, QueryRepository<User>>();
-builder.Services.AddScoped<ICommandRepository<User>, CommandRepository<User>>();
-builder.Services.AddScoped<IBaseAdapter<User, UserDto>, UserAdapter>();
-builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 

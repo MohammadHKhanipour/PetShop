@@ -26,7 +26,7 @@
             return _baseAdapter.GetDtos(models).ToList();
         }
 
-        public async Task<List<PetDto>> GetAllByUserId(int id)
+        public async Task<List<PetDto>> GetAllByUserId(string id)
         {
             var models = await _queryRepository.GetAsync(x => x.UserId == id);
             return _baseAdapter.GetDtos(models).ToList();

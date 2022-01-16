@@ -46,22 +46,23 @@
             return _baseAdapter.GetDto(model);
         }
 
-        public async Task<bool> AddAsync(Model entity)
-            => await _commandRepository.AddAsync(entity);
+        public async Task<bool> AddAsync(Dto entity)
+            => await _commandRepository.AddAsync(_baseAdapter.GetModel(entity));
 
-        public async Task<bool> AddRangeAsync(List<Model> entities)
-            => await _commandRepository.AddRangeAsync(entities);
+        public async Task<bool> AddRangeAsync(List<Dto> entities)
+            => await _commandRepository.AddRangeAsync(_baseAdapter.GetModels(entities).ToList());
 
         public async Task<bool> DeleteAsync(int id)
             => await _commandRepository.DeleteAsync(id);
 
-        public async Task<bool> DeleteAsync(Model entity)
-            => await _commandRepository.DeleteAsync(entity);
+        public async Task<bool> DeleteAsync(Dto entity)
+            => await _commandRepository.DeleteAsync(_baseAdapter.GetModel(entity));
 
-        public async Task<bool> DeleteRangeAsync(List<Model> entities)
-            => await _commandRepository.DeleteRangeAsync(entities);
+        public async Task<bool> DeleteRangeAsync(List<Dto> entities)
+            => await _commandRepository.DeleteRangeAsync(_baseAdapter.GetModels(entities).ToList());
 
-        public async Task<bool> UpdateAsync(Model entity)
-            => await _commandRepository.UpdateAsync(entity);
+        public async Task<bool> UpdateAsync(Dto entity)
+            => await _commandRepository.UpdateAsync(_baseAdapter.GetModel(entity));
+
     }
 }
