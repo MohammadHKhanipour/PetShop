@@ -1,13 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using PetShop.Domain.Data.Models;
 using PetShop.Domain.Services.Interfaces;
 
 namespace PetShop.Presentation.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
-        public async Task<IActionResult> Index()
+        private readonly UserManager<User> _userManager;
+
+        public UserController(UserManager<User> userManager)
         {
-            return Ok();
+            _userManager = userManager;
+        }
+
+        public async Task<IActionResult> Profile()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            return View(user);
         }
     }
 }

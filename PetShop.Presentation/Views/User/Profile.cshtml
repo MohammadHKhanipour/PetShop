@@ -1,0 +1,80 @@
+﻿@model PetShop.Domain.Data.Models.User
+
+@{
+	ViewData["Title"] = "Profile";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid container-fluid-100 d-flex">
+	<div class="col-3 left-menu d-flex flex-column">
+		<p class="fs-3 ms-2 text-green-strong mt-3">Personal Info:</p>
+		@{
+			var name = Model.FirstName + " " + Model.LastName;
+			<div class="mx-2 row align-items-start">
+				<div class="d-flex flex-row">
+					<p>First Name:</p>
+					<p class="ms-1">Mohammad Hassan</p>
+				</div>
+				<div class="d-flex flex-row">
+					<p>Last Name:</p>
+					<p class="ms-1">Khanipour</p>
+				</div>
+			</div>
+			<div class="mx-2 row align-items-start">
+				<div class="col d-flex flex-row">
+					<p>City:</p>
+					<p class="ms-1">Tehran</p>
+				</div>
+				<div class="col d-flex flex-row">
+					<p>Street:</p>
+					<p class="ms-1">Jeyhun</p>
+				</div>
+			</div>
+			<div class="mx-2 row align-items-start">
+				<div class="d-flex flex-row">
+					<p>Phone:</p>
+					<p class="ms-1">09190777620</p>
+				</div>
+				<div class="d-flex flex-row">
+					<p>Email:</p>
+					<p class="ms-1">mhkhk@outlook.com</p>
+				</div>
+			</div>
+			<button class="btn btn-outline-success mycitypets align-self-center mb-2">
+				Cahnge Info
+			</button>
+		}
+	</div>
+	<div class="col-9 mt-3 ps-2">
+		<p class="fs-3 ms-2 text-green-strong">My Pets:</p>
+		<div class="row row-cols-5 g-3 me-1">
+			<div class="col">
+				<div class="card card-border h-100">
+					<img src="https://barkingroyalty.com/wp-content/uploads/2016/02/Alaskan-Malamutes.jpg"
+						 class="card-img-top"
+						 alt="..." />
+					<div class="card-body">
+						<div class="d-flex justify-content-between">
+							<h3 class="card-title">Stanley</h3>
+							<img src="src/icons/MaleIcon.png"
+								 alt=""
+								 style="width: 20px; height: 20px" />
+						</div>
+						<div class="d-flex">
+							<p class="fs-5 fw-bold">Husky</p>
+							<p class="fs-5 mx-2 text-green-strong">•</p>
+							<p class="fs-5 fw-bold">2</p>
+						</div>
+					</div>
+					<div class="card-footer">
+						<div class="d-flex justify-content-between">
+							<h5 class="card-title text-green-strong priceline">$100</h5>
+							<p class="card-title fw-bold">1/16/2022</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

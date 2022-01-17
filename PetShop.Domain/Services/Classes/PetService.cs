@@ -31,5 +31,39 @@
             var models = await _queryRepository.GetAsync(x => x.UserId == id);
             return _baseAdapter.GetDtos(models).ToList();
         }
+
+        public async Task<List<PetDto>> GetAsync(Category? category = null, string searchValue = "")
+        {
+            if (!string.IsNullOrEmpty(searchValue))
+                return _baseAdapter.GetDtos(await _queryRepository.GetAsync(x => x.Breed.ToLower().Contains(searchValue.ToLower()))).ToList();
+
+            var pets = await _queryRepository.GetAsync();
+            if (category != null)
+                switch (category)
+                {
+                    case Category.Others:
+                        pets = pets.Where(x => x.Category == Category.Others).ToList();
+                        break;
+                    case Category.Dog:
+                        pets = pets.Where(x => x.Category == Category.Dog).ToList();
+                        break;
+                    case Category.Cat:
+                        pets = pets.Where(x => x.Category == Category.Cat).ToList();
+                        break;
+                    case Category.Bird:
+                        pets = pets.Where(x => x.Category == Category.Bird).ToList();
+                        break;
+                    case Category.Reptile:
+                        pets = pets.Where(x => x.Category == Category.Reptile).ToList();
+                        break;
+                    case Category.Mammal:
+                        pets = pets.Where(x => x.Category == Category.Mammal).ToList();
+                        break;
+                    default:
+                        break;
+                }
+
+            return _baseAdapter.GetDtos(pets).ToList();
+        }
     }
 }

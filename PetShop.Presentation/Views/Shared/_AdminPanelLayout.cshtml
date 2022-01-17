@@ -26,12 +26,7 @@
                     else
                     {
                         <a class="btn btn-outline-white mx-2" aria-current="page" asp-action="LogOut" asp-controller="Accounts">Log Out</a>
-                        if (User.IsInRole("User")){
-                            <a asp-action="Profile" asp-controller="User" class=""><i class="bi bi-person-circle h3 m-0 p-0 icon-white"></i></a>
-                        }
-                        else if(User.IsInRole("Admin")){
-                            <a asp-action="Dashboard" asp-controller="Admin" class=""><i class="bi bi-person-circle h3 m-0 p-0 icon-white"></i></a>
-                        }
+                        <i class="bi bi-person-circle h3 m-0 p-0 icon-white"></i>
                     }
           </div>
           <a
@@ -40,12 +35,11 @@
             style="padding: 0%; margin: 0%"
             href="#"
             >Gemini</a>
-          <form class="d-flex mx-2" asp-action="Index" asp-controller="Home" method="get">
-            <input 
+          <form class="d-flex mx-2">
+            <input
               class="form-control search-shadow me-2"
-              name="searchValue"
               type="search"
-              placeholder="Search by Breed"
+              placeholder="Search"
               aria-label="Search"
             />
             <button class="btn btn-outline-white" type="submit">Search</button>
@@ -53,9 +47,26 @@
         </div>
       </nav>
     </header>
-    <div class="container-fluid">
-            @RenderBody()
-    </div>
+    <main>
+      <div class="container-fluid container-fluid-100 d-flex">
+        <div class="col-2 left-menu d-flex flex-column">
+          <a
+            class="btn btn-outline-success admin-btn align-self-center mb-2 mt-5"
+          >
+            Users Management
+          </a>
+          <a class="btn btn-outline-success admin-btn align-self-center mb-2">
+            Pets Management
+          </a>
+          <a class="btn btn-outline-success admin-btn align-self-center mb-2">
+            Dashboard
+          </a>
+        </div>
+        <div class="col-10 mt-3 ps-4 pe-4">
+        @RenderBody()
+        </div>
+      </div>
+    </main>
 
     <footer class="footer-class">
       <div class="container-fluid bg-green d-flex justify-content-center">

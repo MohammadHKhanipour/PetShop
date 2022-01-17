@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace PetShop.Domain.Data.Context
 {
-    public class PetShopDbContext : IdentityDbContext<User,IdentityRole,string>
+    public class PetShopDbContext : IdentityDbContext<User, IdentityRole, string>
     {
         public PetShopDbContext(DbContextOptions<PetShopDbContext> options) : base(options)
         {
@@ -16,6 +16,23 @@ namespace PetShop.Domain.Data.Context
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            #region Role
+            builder.Entity<IdentityRole>().HasData(
+                new IdentityRole
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = "Admin",
+                    NormalizedName = "ADMIN"
+                },
+                new IdentityRole
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = "User",
+                    NormalizedName = "USER"
+                }
+            );
+            #endregion
 
             #region Pets
             builder.Entity<Pet>().HasData(new Pet()

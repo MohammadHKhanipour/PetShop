@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PetShop.Domain.Data.Enums;
 using PetShop.Domain.Services.Interfaces;
 using PetShop.Presentation.Models;
 using System.Diagnostics;
@@ -14,9 +15,9 @@ namespace PetShop.Presentation.Controllers
             _petService = petService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(Category? category = null, string searchValue = "")
         {
-            ViewBag.Pets = await _petService.GetAsync();
+            ViewBag.Pets = await _petService.GetAsync(category,searchValue);
             return View();
         }
     }

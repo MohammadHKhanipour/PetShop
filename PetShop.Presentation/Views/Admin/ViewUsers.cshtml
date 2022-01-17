@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PetShop.Domain.Data.Models.User>
+
+@{
+	ViewData["Title"] = "ViewUsers";
+	Layout = "~/Views/Shared/_AdminPanelLayout.cshtml";
+}
+
+@if (Model == null || !Model.Any())
+{
+	<p>No pets Found</p>
+}
+else
+{
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Name</th>
+				<th scope="col">Email</th>
+				<th scope="col">PhoneNumber</th>
+				<th scope="col">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			@{
+
+				int i = 1;
+				foreach (var item in Model)
+				{
+					var name = item.FirstName + " " + item.LastName;
+					<tr>
+						<th scope="row">@i</th>
+						<td>@name</td>
+						<td>@item.Email</td>
+						<td>@item.UserName</td>
+						<td><i class="bi bi-x-circle icon-red h4"></i></td>
+					</tr>
+					i++;
+				}
+
+			}
+		</tbody>
+	</table>
+}
+

@@ -153,3 +153,48 @@ body {
 .card-border-blue {
     border: 3px solid #3452eb;
 }
+
+.icon-red {
+    color: #eb4034;
+}
+
+.icon-purple {
+    color: #7d34eb;
+}
+
+.icon-orange {
+    color: #eb9234;
+}
+
+.icon-blue {
+    color: #3452eb;
+}
+
+.icon-white {
+    color: #ffffff;
+}
+
+.icon-dash-size {
+    font-size: 3.5rem;
+}
+
+.pet-image {
+    height: 50%;
+    width: 75%;
+}
+
+.pet-card-border {
+    border: 3px solid #018859;
+    box-shadow: 20px 20px 50px #018859;
+}
+
+.admin-btn {
+    height: 50px;
+    width: 230px;
+}
+
+.footer-class {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

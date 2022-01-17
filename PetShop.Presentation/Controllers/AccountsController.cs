@@ -11,13 +11,13 @@ namespace PetShop.Presentation.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
 
-        public AccountsController(UserManager<User> userManager, SignInManager<User> signInManager)
-        {
-            _userManager = userManager;
-            _signInManager = signInManager;
-        }
+		public AccountsController(UserManager<User> userManager, SignInManager<User> signInManager)
+		{
+			_userManager = userManager;
+			_signInManager = signInManager;
+		}
 
-        [HttpGet]
+		[HttpGet]
         public IActionResult SignUp()
         {
             return View();
@@ -44,7 +44,10 @@ namespace PetShop.Presentation.Controllers
 
             var result = await _userManager.CreateAsync(user, dto.Password);
             if (result.Succeeded)
+			{
+                await _userManager.AddToRoleAsync(user, "User");
                 return RedirectToAction("LogIn");
+			}
 
             ViewBag.Error = "Sign Up Failed";
             return View(dto);
@@ -62,7 +65,7 @@ namespace PetShop.Presentation.Controllers
             if (!ModelState.IsValid)
                 return View(dto);
 
-            var result = await _signInManager.PasswordSignInAsync(dto.UserName, dto.Password, dto.RememberMe, true);
+            var result = await _signInManager.PasswordSignInAsync(dto.UserName, dto.Password, false, true);
             if (result.Succeeded)
                 return RedirectToAction("Index","Home");
 
