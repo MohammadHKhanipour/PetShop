@@ -29,17 +29,17 @@
                         <i class="bi bi-person-circle h3 m-0 p-0 icon-white"></i>
                     }
           </div>
-          <a
+          <a asp-action="Index" asp-controller="Home"
             class="btn text-white fs-3"
             aria-current="page"
             style="padding: 0%; margin: 0%"
-            href="#"
             >Gemini</a>
-          <form class="d-flex mx-2">
-            <input
+          <form class="d-flex mx-2" asp-action="Index" asp-controller="Home" method="get">
+            <input 
               class="form-control search-shadow me-2"
+              name="searchValue"
               type="search"
-              placeholder="Search"
+              placeholder="Search by Breed"
               aria-label="Search"
             />
             <button class="btn btn-outline-white" type="submit">Search</button>

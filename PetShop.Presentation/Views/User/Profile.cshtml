@@ -1,4 +1,6 @@
 ﻿@model PetShop.Domain.Data.Models.User
+@using PetShop.Domain.Data.Dtos
+@using PetShop.Domain.Data.Enums
 
 @{
 	ViewData["Title"] = "Profile";
@@ -9,71 +11,103 @@
 	<div class="col-3 left-menu d-flex flex-column">
 		<p class="fs-3 ms-2 text-green-strong mt-3">Personal Info:</p>
 		@{
-			var name = Model.FirstName + " " + Model.LastName;
 			<div class="mx-2 row align-items-start">
 				<div class="d-flex flex-row">
 					<p>First Name:</p>
-					<p class="ms-1">Mohammad Hassan</p>
+					<p class="ms-1">@Model.FirstName</p>
 				</div>
 				<div class="d-flex flex-row">
 					<p>Last Name:</p>
-					<p class="ms-1">Khanipour</p>
+					<p class="ms-1">@Model.LastName</p>
 				</div>
 			</div>
 			<div class="mx-2 row align-items-start">
 				<div class="col d-flex flex-row">
 					<p>City:</p>
-					<p class="ms-1">Tehran</p>
+					<p class="ms-1">@Model.City</p>
 				</div>
 				<div class="col d-flex flex-row">
 					<p>Street:</p>
-					<p class="ms-1">Jeyhun</p>
+					<p class="ms-1">@Model.Street</p>
 				</div>
 			</div>
 			<div class="mx-2 row align-items-start">
 				<div class="d-flex flex-row">
 					<p>Phone:</p>
-					<p class="ms-1">09190777620</p>
+					<p class="ms-1">@Model.PhoneNumber</p>
 				</div>
 				<div class="d-flex flex-row">
 					<p>Email:</p>
-					<p class="ms-1">mhkhk@outlook.com</p>
+					<p class="ms-1">@Model.Email</p>
 				</div>
 			</div>
-			<button class="btn btn-outline-success mycitypets align-self-center mb-2">
+			<a class="btn btn-outline-success mycitypets align-self-center mb-2">
 				Cahnge Info
-			</button>
+			</a>
+			<a class="btn btn-outline-success mycitypets align-self-center mb-2">
+				Add Pet
+			</a>
 		}
 	</div>
 	<div class="col-9 mt-3 ps-2">
 		<p class="fs-3 ms-2 text-green-strong">My Pets:</p>
 		<div class="row row-cols-5 g-3 me-1">
-			<div class="col">
-				<div class="card card-border h-100">
-					<img src="https://barkingroyalty.com/wp-content/uploads/2016/02/Alaskan-Malamutes.jpg"
-						 class="card-img-top"
-						 alt="..." />
-					<div class="card-body">
-						<div class="d-flex justify-content-between">
-							<h3 class="card-title">Stanley</h3>
-							<img src="src/icons/MaleIcon.png"
-								 alt=""
-								 style="width: 20px; height: 20px" />
+			@{
+				var pets = ViewBag.UserPets as List<PetDto>;
+				if (pets == null || !pets.Any())
+				{
+					<p class="fs-4 ms-2 text-green-strong">No Pets Added!</p>
+				}
+				else
+				{
+					foreach (var item in pets)
+					{
+						<div class="col">
+							<div class="card card-border h-100">
+								<a>
+									<img src="@item.ImageAddress"
+							 	class="card-img-top"
+							 	alt="..." />
+								</a>
+
+								<div class="card-body">
+									<div class="d-flex justify-content-between">
+										<h3 class="card-title">@item.Name</h3>
+										@if (item.Gender == Gender.Male)
+										{
+											<i class="bi bi-gender-male h4"></i>
+										}
+										else
+										{
+											<i class="bi bi-gender-female h4"></i>
+										}
+									</div>
+									<div class="d-flex">
+										<p class="fs-5 fw-bold">@item.Breed</p>
+										<p class="fs-5 mx-2 text-green-strong">•</p>
+										<p class="fs-5 fw-bold">@item.Age</p>
+									</div>
+								</div>
+								<div class="card-footer">
+									<div class="d-flex justify-content-between">
+										@if (item.Price != "0")
+										{
+											var dollarPrice = "$" + item.Price;
+											<h5 class="card-title text-green-strong priceline">@dollarPrice</h5>
+										}
+										else
+										{
+											<h5 class="card-title text-green-strong">Adoption</h5>
+										}
+										<p class="card-title fw-bold">@item.DateAdded.ToShortDateString()</p>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="d-flex">
-							<p class="fs-5 fw-bold">Husky</p>
-							<p class="fs-5 mx-2 text-green-strong">•</p>
-							<p class="fs-5 fw-bold">2</p>
-						</div>
-					</div>
-					<div class="card-footer">
-						<div class="d-flex justify-content-between">
-							<h5 class="card-title text-green-strong priceline">$100</h5>
-							<p class="card-title fw-bold">1/16/2022</p>
-						</div>
-					</div>
-				</div>
-			</div>
+					}
+				}
+			}
+
 		</div>
 	</div>
 </div>

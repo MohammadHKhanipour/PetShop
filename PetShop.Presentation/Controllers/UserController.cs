@@ -10,15 +10,18 @@ namespace PetShop.Presentation.Controllers
     public class UserController : Controller
     {
         private readonly UserManager<User> _userManager;
+        private readonly IPetService _petService;
 
-        public UserController(UserManager<User> userManager)
+        public UserController(UserManager<User> userManager, IPetService petService)
         {
             _userManager = userManager;
+            _petService = petService;
         }
 
         public async Task<IActionResult> Profile()
         {
             var user = await _userManager.GetUserAsync(User);
+            ViewBag.UserPets = await _petService.GetAllByUserId(user.Id);
             return View(user);
         }
     }
