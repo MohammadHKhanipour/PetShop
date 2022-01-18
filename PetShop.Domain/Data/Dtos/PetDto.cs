@@ -9,9 +9,9 @@
         public int Age { get; set; }
         public string Price { get; set; } = string.Empty;
         public string City { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
+        public string? Description { get; set; }
         public DateTime DateAdded { get; set; }
-        public string ImageAddress { get; set; } = string.Empty;
+        public string? ImageAddress { get; set; }
 
         public string? UserId { get; set; }
     }

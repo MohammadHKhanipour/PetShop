@@ -43,7 +43,12 @@
 						<td>@item.City</td>
 						<td>@dollarPrice</td>
 						<td>@item.DateAdded.ToShortDateString()</td>
-						<td><i class="bi bi-x-circle icon-red h4"></i></td>
+						<td>
+							<div class="d-felx justify-content-between align-align-items-center">
+								<a asp-action="DeletePet" asp-controller="Pets" asp-route-id=@item.Id><i class="bi bi-x-circle icon-red me-2 p-0"></i></a>
+								<a asp-action="EditPet" asp-controller="Pets" asp-route-id=@item.Id><i class="bi bi-pencil icon-blue p-0"></i></a>
+							</div>
+						</td>
 					</tr>
 					i++;
 				}

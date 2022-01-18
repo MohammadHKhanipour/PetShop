@@ -1,0 +1,73 @@
+﻿@model PetShop.Domain.Data.Dtos.PetDto
+
+
+@{
+    ViewData["Title"] = "EditPet";
+    Layout = "~/Views/Shared/_FormLayout.cshtml";
+}
+
+<main>
+	<div class="d-flex justify-content-center mt-3 mb-0">
+		<p class="formtitle">Edit Pet</p>
+	</div>
+	<form class="container loginborder" asp-action="EditPet" asp-controller="Pets" method="post">
+		<div class="mb-3">
+			@if (!string.IsNullOrEmpty(ViewBag.Error))
+			{
+				<div class="alert alert-danger" role="alert">
+					@ViewBag.Error
+				</div>
+			}
+			<label class="form-label">Name</label>
+			<input class="form-control mb-3" value=@Model.Name asp-for=Name />
+			<span asp-validation-for="Name" class="text-danger"></span>
+			<div class="row mb-3">
+				<div class="col">
+					<label class="form-label">Category</label>
+					<input type="text" class="form-control" aria-label="Category" value=@Model.Category asp-for=Category />
+					<span asp-validation-for="Category" class="text-danger"></span>
+				</div>
+				<div class="col">
+					<label class="form-label">Breed</label>
+					<input type="text" class="form-control" aria-label="Breed" value=@Model.Breed asp-for=Breed />
+					<span asp-validation-for="Breed" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="row mb-3">
+				<div class="col">
+					<label class="form-label">Gender</label>
+					<input type="text" class="form-control" aria-label="Gender" value=@Model.Gender asp-for=Gender />
+					<span asp-validation-for="Gender" class="text-danger"></span>
+				</div>
+				<div class="col">
+					<label class="form-label">Age</label>
+					<input type="text" class="form-control" aria-label="Age" value=@Model.Age asp-for=Age />
+					<span asp-validation-for="Age" class="text-danger"></span>
+				</div>
+			</div>
+			<label class="form-label">Image Address</label>
+			<input class="form-control mb-3" value=@Model.ImageAddress asp-for=ImageAddress />
+			<div class="row mb-3">
+				<div class="col">
+					<label class="form-label">City</label>
+					<input type="text" class="form-control" placeholder="Pet's current location" aria-label="City" value=@Model.City asp-for=City />
+					<span asp-validation-for="City" class="text-danger"></span>
+				</div>
+				<div class="col">
+					<label class="form-label">Price</label>
+					<input type="text" class="form-control" aria-label="Price" value=@Model.Price asp-for=Price />
+					<span asp-validation-for="Price" class="text-danger"></span>
+				</div>
+			</div>
+			<label class="form-label">Description</label>
+			<input class="form-control mb-3" value=@Model.Description asp-for=Description />
+			<input type="hidden" value=@Model.Id asp-for=Id/>
+			<input type="hidden" value=@Model.UserId asp-for=UserId/>
+			<input type="hidden" value=@Model.DateAdded asp-for=DateAdded/>
+			<div class="d-flex justify-content-between">
+				<button type="submit" class="btn btn-outline-success">Submit</button>
+				<a type="submit" class="btn btn-outline-danger" asp-action="Profile" asp-controller="User">Cancel</a>
+			</div>
+		</div>
+	</form>
+</main>

@@ -34,6 +34,7 @@ else
 						<td>@item.Email</td>
 						<td>@item.UserName</td>
 						<td><i class="bi bi-x-circle icon-red h4"></i></td>
+						<td><a asp-action="EditPet" asp-controller="Pets" asp-route-id=@item.Id><i class="bi bi-pencil icon-blue"></i></a></td>
 					</tr>
 					i++;
 				}

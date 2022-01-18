@@ -1,0 +1,77 @@
+﻿@model PetShop.Domain.Data.Dtos.PetDto
+
+@{
+	ViewData["Title"] = "Profile";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+	<div class="container-fluid container-fluid-100 d-flex">
+		<div class="col-6 d-flex justify-content-center">
+			<img class="mt-5 pet-image pet-card-border rounded-3"
+				 src="https://barkingroyalty.com/wp-content/uploads/2016/02/Alaskan-Malamutes.jpg"
+				 alt="" />
+		</div>
+		<div class="col-6 d-flex justify-content-start">
+			<div class="mt-5">
+				<div class="mx-2 row align-items-start">
+					<div class="col d-flex flex-row">
+						<h3 class="text-green">Name:</h3>
+						<h3 class="ms-4">@Model.Name</h3>
+					</div>
+					<div class="ms-5 col d-flex flex-row">
+						<h3 class="text-green">Breed:</h3>
+						<h3 class="ms-4">@Model.Breed</h3>
+					</div>
+				</div>
+				<div class="mx-2 mt-3 row align-items-start">
+					<div class="col d-flex flex-row">
+						<h3 class="text-green">Gender:</h3>
+						<h3 class="ms-4">@Model.Gender</h3>
+					</div>
+					<div class="ms-5 col d-flex flex-row">
+						<h3 class="text-green">Category:</h3>
+						<h3 class="ms-4">@Model.Category</h3>
+					</div>
+				</div>
+				<div class="mx-2 mt-3 row align-items-start">
+					<div class="col d-flex flex-row">
+						<h3 class="text-green">Age:</h3>
+						<h3 class="ms-4">@Model.Age</h3>
+					</div>
+					<div class="ms-5 col d-flex flex-row">
+						<h3 class="text-green">City:</h3>
+						<h3 class="ms-4">@Model.City</h3>
+					</div>
+				</div>
+				<div class="mx-2 mt-3 row align-items-start">
+					<div class="col d-flex flex-row">
+						@if (@Model.Price != "0")
+						{
+							var dollarPrice = "$" + Model.Price;
+							<h3 class="text-green">Price:</h3>
+							<h3 class="ms-4 priceline">@dollarPrice</h3>
+						}
+						else
+						{
+							<h3 class="text-green">For Adoption</h3>
+						}
+					</div>
+					<div class="ms-5 col d-flex flex-row">
+						<h3 class="text-green">Added on:</h3>
+						<h3 class="ms-4">@Model.DateAdded.ToShortDateString()</h3>
+					</div>
+				</div>
+				<h3 class="text-green mx-3 mt-3">Description:</h3>
+				<p class=" mx-3 fs-4 fw-bold">@Model.Description</p>
+				<div class="mx-2 mt-3 row align-items-start">
+					<div class="col d-flex flex-row">
+						<h3 class="text-green">Owner's Phone Number:</h3>
+						<h3 class="ms-4">@ViewBag.UserPhone</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+

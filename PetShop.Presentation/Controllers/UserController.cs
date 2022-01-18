@@ -18,10 +18,12 @@ namespace PetShop.Presentation.Controllers
             _petService = petService;
         }
 
-        public async Task<IActionResult> Profile()
+        public async Task<IActionResult> Profile(string message = "")
         {
             var user = await _userManager.GetUserAsync(User);
             ViewBag.UserPets = await _petService.GetAllByUserId(user.Id);
+            if (!string.IsNullOrEmpty(message))
+                ViewBag.Error = message;
             return View(user);
         }
     }

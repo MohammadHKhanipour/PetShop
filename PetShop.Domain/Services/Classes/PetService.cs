@@ -32,8 +32,11 @@
             return _baseAdapter.GetDtos(models).ToList();
         }
 
-        public async Task<List<PetDto>> GetAsync(Category? category = null, string searchValue = "")
+        public async Task<List<PetDto>> GetAsync(Category? category = null, string searchValue = "", string cityValue = "")
         {
+            if (!string.IsNullOrEmpty(cityValue))
+                return _baseAdapter.GetDtos(await _queryRepository.GetAsync(x => x.City.ToLower().Contains(cityValue.ToLower()))).ToList();
+
             if (!string.IsNullOrEmpty(searchValue))
                 return _baseAdapter.GetDtos(await _queryRepository.GetAsync(x => x.Breed.ToLower().Contains(searchValue.ToLower()))).ToList();
 
