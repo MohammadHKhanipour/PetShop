@@ -26,13 +26,10 @@
         {
             User user = null;
             if (!string.IsNullOrEmpty(id))
-            {
                 user = await _userManager.FindByIdAsync(id);
-            }
+
             else
-            {
                 user = await _userManager.GetUserAsync(User);
-            }
 
             EditDto dto = new EditDto()
             {
