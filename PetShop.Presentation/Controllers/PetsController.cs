@@ -109,7 +109,7 @@ namespace PetShop.Presentation.Controllers
 				return RedirectToAction("Profile", "User");
 			}
 
-			return RedirectToAction("Profile", "User", new { message = "Update Failed" });
+			return RedirectToAction("Profile", "User", new { message = "Edit Info Failed" });
 		}
 	}
 }

@@ -70,9 +70,9 @@
 					{
 						<div class="col">
 							<div class="card card-border h-100">
-								<a>
+								<a asp-action="Profile" asp-controller="Pets" asp-route-id=@item.Id>
 									<img src="@item.ImageAddress"
-							 	class="card-img-top"
+							 	class="card-img-top pet-card-image"
 							 	alt="..." />
 								</a>
 
@@ -81,11 +81,11 @@
 										<h3 class="card-title">@item.Name</h3>
 										@if (item.Gender == Gender.Male)
 										{
-											<i class="bi bi-gender-male h4"></i>
+											<i class="bi bi-gender-male text-green-strong h4"></i>
 										}
 										else
 										{
-											<i class="bi bi-gender-female h4"></i>
+											<i class="bi bi-gender-female text-green-strong h4"></i>
 										}
 									</div>
 									<div class="d-flex">
