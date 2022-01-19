@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PetShop.Domain.Data.Models;
 using PetShop.Domain.Services.Interfaces;
+using System.Linq;
+
 
 namespace PetShop.Presentation.Controllers
 {
@@ -21,6 +23,9 @@ namespace PetShop.Presentation.Controllers
 
 		public async Task<IActionResult> Dashboard()
 		{
+			ViewBag.UserCount = _userManager.Users.ToList().Count;
+			ViewBag.PetsCount = await _petService.GetCountAsync();
+			ViewBag.PetsWorth = await _petService.GetPricesSum();
 			return View();
 		}
 

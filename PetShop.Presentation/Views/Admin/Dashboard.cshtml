@@ -4,5 +4,48 @@
     Layout = "~/Views/Shared/_AdminPanelLayout.cshtml";
 }
 
-<h1>Dashboard</h1>
+<div class="col-10 mt-3 ps-4 pe-4">
+          <div class="row row-cols-4 g-3 me-1">
+            <div
+              class="ms-3 mt-4 card d-flex flex-row justify-content-between card-border-red align-self-center"
+              style="height: 100px; width: 300px"
+            >
+              <div class="card-body">
+                <h5>Total Users:</h5>
+                <p class="fs-5 fw-bold">@ViewBag.UserCount</p>
+              </div>
+              <div class="card-body d-flex justify-content-end">
+                <i class="bi bi-people icon-red icon-dash-size"></i>
+              </div>
+            </div>
+            <div
+              class="ms-3 mt-4 card d-flex flex-row justify-content-between card-border-purple align-self-center"
+              style="height: 100px; width: 300px"
+            >
+              <div class="card-body">
+                <h5>Total Pets:</h5>
+                <p class="fs-5 fw-bold">@ViewBag.PetsCount</p>
+              </div>
+              <div class="card-body d-flex justify-content-end">
+                <i class="bi bi-tag icon-purple icon-dash-size"></i>
+              </div>
+            </div>
+            <div
+              class="ms-3 mt-4 card d-flex flex-row justify-content-between card-border-orange align-self-center"
+              style="height: 100px; width: 300px"
+            >
+              <div class="card-body">
+                <h5>Total Worth:</h5>
+                @{
+                    string price = ViewBag.PetsWorth.ToString();
+                    string dollarPrice = "$" + price;
+                }
+                <p class="fs-5 fw-bold">@dollarPrice</p>
+              </div>
+              <div class="card-body d-flex justify-content-end">
+                <i class="bi bi-currency-dollar icon-orange icon-dash-size"></i>
+              </div>
+            </div>
+          </div>
+        </div>
 

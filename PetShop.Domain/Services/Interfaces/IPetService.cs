@@ -6,5 +6,6 @@
 		public Task<List<PetDto>> GetAllByUserCity(User? user);
 		public Task<List<PetDto>> GetAllByUserId(string id);
 		Task<List<PetDto>> GetAsync(Category? category = null, string searchValue = "", string cityValue = "");
-	}
+        Task<long> GetPricesSum();
+    }
 }

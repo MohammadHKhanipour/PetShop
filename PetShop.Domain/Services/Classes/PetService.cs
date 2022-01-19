@@ -32,6 +32,13 @@
 			return _baseAdapter.GetDtos(models).ToList();
 		}
 
+		public async Task<long> GetPricesSum()
+        {
+			var pets = await _queryRepository.GetAsync();
+			var price = pets.Sum(x => Convert.ToInt32(x.Price));
+			return price;
+        }
+
 		public async Task<List<PetDto>> GetAsync(Category? category = null, string searchValue = "", string cityValue = "")
 		{
 			if (!string.IsNullOrEmpty(cityValue))
