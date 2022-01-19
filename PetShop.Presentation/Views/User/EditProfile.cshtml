@@ -1,0 +1,74 @@
+﻿@model PetShop.Domain.Data.Dtos.EditDto
+
+
+@{
+	ViewData["Title"] = "EditProfile";
+	Layout = "~/Views/Shared/_FormLayout.cshtml";
+}
+
+<main>
+	<div class="d-flex justify-content-center mt-3 mb-0">
+		<p class="formtitle">Edit Profile</p>
+	</div>
+	<form class="container loginborder" asp-action="EditProfile" asp-controller="User" method="post">
+		<div class="mb-3">
+			@if (!string.IsNullOrEmpty(ViewBag.Error))
+			{
+				<div class="alert alert-danger" role="alert">
+					@ViewBag.Error
+				</div>
+			}
+			<div class="row mb-3">
+				<div class="col">
+					<label class="form-label">First Name</label>
+					<input type="text" class="form-control" aria-label="First name" value=@Model.FirstName asp-for=FirstName />
+				</div>
+				<div class="col">
+					<label class="form-label">Last Name</label>
+					<input type="text" class="form-control" aria-label="Last name" value=@Model.LastName asp-for=LastName />
+				</div>
+			</div>
+			<label class="form-label mt-3">Email address</label>
+			<input type="email"
+				   class="form-control"
+				   value=@Model.Email
+				   asp-for=Email />
+			<div id="numberHelp" class="form-text">
+				We'll never share your number with anyone else.
+			</div>
+		</div>
+		<div class="mb-1">
+			<label class="form-label">Password</label>
+			<input type="password"
+				   class="form-control"
+				   asp-for=Password />
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Repeat Password</label>
+			<input type="password"
+				   class="form-control"
+				   asp-for=ConfirmPassword />
+		</div>
+		<div class="row mb-3">
+			<div class="col">
+				<label class="form-label">Age</label>
+				<input type="number" class="form-control" aria-label="Age" value=@Model.Age asp-for=Age />
+			</div>
+			<div class="col">
+				<label class="form-label">City</label>
+				<input type="text" class="form-control" aria-label="City" value=@Model.City asp-for=City />
+			</div>
+			<div class="col">
+				<label class="form-label">Street</label>
+				<input type="text" class="form-control" aria-label="Street" value=@Model.Street asp-for=Street />
+			</div>
+		</div>
+		<input type="hidden" value=@Model.Id asp-for=Id />
+
+		<div class="d-flex justify-content-between">
+			<button type="submit" class="btn btn-outline-success">Submit</button>
+			<button type="submit" class="btn btn-outline-danger">Cancel</button>
+		</div>
+	</form>
+</main>
+
