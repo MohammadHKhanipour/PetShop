@@ -1,11 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using PetShop.Domain.Data.Dtos;
-using PetShop.Domain.Data.Models;
-using PetShop.Domain.Services.Interfaces;
-
-namespace PetShop.Presentation.Controllers
+﻿namespace PetShop.Presentation.Controllers
 {
     [Authorize]
     public class UserController : Controller
