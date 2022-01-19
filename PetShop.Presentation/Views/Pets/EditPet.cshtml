@@ -24,7 +24,16 @@
 			<div class="row mb-3">
 				<div class="col">
 					<label class="form-label">Category</label>
-					<input type="text" class="form-control" aria-label="Category" value=@Model.Category asp-for=Category />
+					<div class="input-group mb-3">
+						<select class="form-select" asp-for=Category>
+							<option>Dog</option>
+							<option>Cat</option>
+							<option>Bird</option>
+							<option>Reptile</option>
+							<option>Mammal</option>
+							<option>Others</option>
+						</select>
+					</div>
 					<span asp-validation-for="Category" class="text-danger"></span>
 				</div>
 				<div class="col">
@@ -36,12 +45,17 @@
 			<div class="row mb-3">
 				<div class="col">
 					<label class="form-label">Gender</label>
-					<input type="text" class="form-control" aria-label="Gender" value=@Model.Gender asp-for=Gender />
+					<div class="input-group">
+						<select class="form-select" asp-for=Gender>
+							<option>Male</option>
+							<option>Female</option>
+						</select>
+					</div>
 					<span asp-validation-for="Gender" class="text-danger"></span>
 				</div>
 				<div class="col">
 					<label class="form-label">Age</label>
-					<input type="text" class="form-control" aria-label="Age" value=@Model.Age asp-for=Age />
+					<input type="number" class="form-control" aria-label="Age" value=@Model.Age asp-for=Age />
 					<span asp-validation-for="Age" class="text-danger"></span>
 				</div>
 			</div>
